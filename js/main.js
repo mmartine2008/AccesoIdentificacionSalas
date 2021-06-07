@@ -22,49 +22,6 @@ function updateData(pattern) {
     
 }
 
-function createLinkAccesoSala(fila) {
-    var link = $("<a>");
-    link.attr("href","/sala/"+fila.id);
-    link.attr("title","Acceso a sala"+fila.Nombre);
-    link.text("Acceder");
-    link.addClass("link");
-
-    return link;
-}
-
-function addFilaResultado(fila) {wget 
-    var link = createLinkAccesoSala(fila);
-
-    $("#id_tabla_resultados").find('tbody')
-    .append($('<tr>')
-        .append($('<td>')
-            .append(fila.Fecha)
-        )
-        .append($('<td>')
-            .append(fila.Hora)
-        )
-        .append($('<td>')
-            .append(fila.Nombre)
-        )
-        .append($('<td>')
-            .append(fila.Responsable)
-        )
-        .append($('<td>')
-            .append(fila.Mail)
-        )
-        .append($('<td>')
-            .append(link)
-        )
-
-    );    
-}
-function mostrarResultados(results)
-{
-    for (var i = 0; i < results.length; i++) {
-        addFilaResultado(results[i])
-    }    
-}
-
 function actualizaTabla() {
     $('#id_tabla_resultados').dataTable().fnClearTable();
     $('#id_tabla_resultados').dataTable().fnAddData(dataSet);
