@@ -10,8 +10,6 @@ function actualicePatronBusqueda(pattern) {
     console.log('Searching '+pattern);
     $('#div_resultados_busqueda').append('Resultados para la busqueda de:&nbsp;<b>'+pattern+'</b>');
     $('#id_search').val('');
-
-    // $('#id_tabla_resultados').reload();
 }
 
 
@@ -65,7 +63,11 @@ function mostrarResultados(results)
     for (var i = 0; i < results.length; i++) {
         addFilaResultado(results[i])
     }    
+}
 
+function actualizaTabla() {
+    $('#id_tabla_resultados').dataTable().fnClearTable();
+    $('#id_tabla_resultados').dataTable().fnAddData(dataSet);
 }
 
 function search() {
@@ -74,13 +76,7 @@ function search() {
     if (pattern != '') {
         actualicePatronBusqueda(pattern);
         updateData(pattern);
-        console.log(dataSet);
-
-        $('#id_tabla_resultados').dataTable().fnClearTable();
-        $('#id_tabla_resultados').dataTable().fnAddData(dataSet);
-
-        // $('#id_tabla_resultados').data.reload();
-       // mostrarResultados(results);
+        actualizaTabla();
     } 
 }
 
@@ -98,6 +94,20 @@ $( document ).ready(function() {
             { title: "Responsable/Anfitrion" },
             { title: "Mail institucional" },
             { title: "Acceso" }
+        ],
+        columnDefs: [
+            {"targets": 0, "render": function ( data, type, row ) { return row[1];}}, 
+            {"targets": 1, "render": function ( data, type, row ) { return row[2];}}, 
+            {"targets": 2, "render": function ( data, type, row ) { return row[3];}}, 
+            {"targets": 3, "render": function ( data, type, row ) { return row[4];}}, 
+            {"targets": 4, "render": function ( data, type, row ) { return row[5];}}, 
+            {
+                "targets": 5,
+                "render": function ( data, type, row ) {
+               return '<a name="deleteAnchor" id="deleteAnchor" class="ajaxCallDelete" value="'+row[0]+'" href="/acceder/'+row[0]+'">Acceder</a>';
+                   },
+                "className": 'text-center'
+               }
         ]
     } );
   });
