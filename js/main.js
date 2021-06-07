@@ -4,35 +4,24 @@
  * Configura los eventos a cada componente.
  * Define funciones de acceso
  */
+var dataSet = [];
+
 function actualicePatronBusqueda(pattern) {
     console.log('Searching '+pattern);
     $('#div_resultados_busqueda').append('Resultados para la busqueda de:&nbsp;<b>'+pattern+'</b>');
     $('#id_search').val('');
-    $('#id_tabla_resultados tbody').empty();
+
+    // $('#id_tabla_resultados').reload();
 }
 
 
-function getResult(pattern) {
+function updateData(pattern) {
 
-    results = [ {
-            "id": 101,
-            "Fecha": "2021-07-14",
-            "Hora": "16:30",
-            "Nombre": "Ciencias I",
-            "Responsable": "Virginia Mauco",
-            "Mail": "ccomp1@exa.unicen.edu.ar",
-        },
-        {
-            "id": 102,
-            "Fecha": "2021-07-21",
-            "Hora": "17:30",
-            "Nombre": "Algoritmos II",
-            "Responsable": "Virginia Cifuentes",
-            "Mail": "algol2@exa.unicen.edu.ar",
-        }
+    dataSet = [ 
+        [101, "2021-07-14", "16:30", "Ciencias I", "Virginia Mauco", "ccomp1@exa.unicen.edu.ar"],
+        [102, "2021-07-21", "17:30", "Algoritmos II", "Virginia Cifuentes", "algol2@exa.unicen.edu.ar"]
     ];
-
-    return results;
+    
 }
 
 function createLinkAccesoSala(fila) {
@@ -45,7 +34,7 @@ function createLinkAccesoSala(fila) {
     return link;
 }
 
-function addFilaResultado(fila) {
+function addFilaResultado(fila) {wget 
     var link = createLinkAccesoSala(fila);
 
     $("#id_tabla_resultados").find('tbody')
@@ -84,13 +73,31 @@ function search() {
     $('#div_resultados_busqueda').empty();
     if (pattern != '') {
         actualicePatronBusqueda(pattern);
-        results = getResult(pattern);
-        mostrarResultados(results);
+        updateData(pattern);
+        console.log(dataSet);
+
+        $('#id_tabla_resultados').dataTable().fnClearTable();
+        $('#id_tabla_resultados').dataTable().fnAddData(dataSet);
+
+        // $('#id_tabla_resultados').data.reload();
+       // mostrarResultados(results);
     } 
 }
+
 
 $( document ).ready(function() {
     // Handler for .ready() called.
     $('#bt_buscar').click(search);
 
+    $('#id_tabla_resultados').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Fecha" },
+            { title: "Hora" },
+            { title: "Nombre" },
+            { title: "Responsable/Anfitrion" },
+            { title: "Mail institucional" },
+            { title: "Acceso" }
+        ]
+    } );
   });
