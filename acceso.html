@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Identificación Salas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='js/jquery-3.6.0.min.js'></script>
+    <script src='js/bootstrap.bundle.min.js'></script>
+    <script src='js/jquery.dataTables.min.js'></script>
+    <!-- <script src='js/main.js'></script> -->
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/jquery.dataTables.min.css'>
+</head>
+<body>
+    <div>
+        <div class="d-flex p-2 justify-content-center"><h1>Identificación para acceso a la sala</h1> 
+        </div>
+        <div class="d-flex p-2 justify-content-center">
+            <div class="d-flex p-2 justify-content-center">
+                Nombre de la sala / Evento: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">Sala 1</p></div>
+            </div>
+            <div class="d-flex p-2 justify-content-center">
+                Responsable / Anfitrión: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">Virginia Mauco</p></div>
+            </div>
+        </div>
+        <div class="container border">
+            
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" aria-describedby="emailHelp" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombres">Nombres</label>
+                            <input type="text" class="form-control" id="nombres" placeholder="Nombres">
+                        </div>
+                        <div class="form-group">
+                            <label for="documento">Documento</label>
+                            <input type="text" class="form-control" id="documento" placeholder="Documento">
+                        </div>
+                    </div>
+                    <div class="col p-2"> 
+                        <div class="form-group">
+                            <img src="img/yo_2019.png">
+                        </div>
+                        <div class="form-group">
+                            <div class="justify-content-center p-2">
+                                <button type="submit" class="btn btn-primary">Tomar foto</button>
+                            </div>
+                        </div>
+                    </div>   
+                </div>             
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="Ayuda">Ingrese la información solicitada, capture una imagen clara de su rostro con la cámara de su dispositivo desde este formulario. Una vez finalizado oprima el botón “ACREDITARME” y recibirá un mail con el enlace de acceso. El registro quedará disponible para el anfitrión.</label>
+                    </div>
+                </div>             
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="email">
+                    </div>
+                    <div class="col form-group">
+                        <label for="email">Celular</label>
+                        <input type="text" class="form-control" id="Celular" placeholder="(cod area) numero">
+                    </div>
+                </div>
+                <div class="d-flex p-2 justify-content-center ">
+                    <button type="submit" class="btn btn-primary">Acreditarme</button>
+                </div>
+            </form>
+            </div>
+        </div>
+       
+</div>
+</body>
+</html>
