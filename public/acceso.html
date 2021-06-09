@@ -93,11 +93,23 @@
                             name="celular"
                             type="text" class="form-control" id="celular" placeholder="(cod area) numero" >
                     </div>
+
                 </div>
-                <div class="d-flex p-2 justify-content-center ">
-                    <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden"></input>
-                    <button type="submit" class="btn btn-primary" id="btEnviar">Acreditarme</button>
+                <div class="row p-2">
+                    <div class="col form-group">								
+						<label class="col control-label">	<img style="border: 1px solid #D3D0D0" src="../app/lib/captcha/get_captcha.php" id='captcha'></label>
+						
+           				<div class="col">
+                            <a href="javascript:void(0)" id="reloadCaptcha"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a> Recargar codigo
+    					</div>
+						
+                    </div>     
+                    <div class="col justify-content-center ">
+                        <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden"></input>
+                        <button type="submit" class="btn btn-primary" id="btEnviar">Acreditarme</button>
+                    </div>               
                 </div>
+
             </form>
             </div>
         </div>
