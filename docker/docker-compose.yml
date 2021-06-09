@@ -1,0 +1,53 @@
+version: '3'
+services:
+  web:
+    image: mydocker/apache:2.0.0.tudai
+    ports:
+      - 80:80
+    volumes:
+     - /home/mariano/work/exa/aulavirtual:/var/www/html
+    depends_on:
+      - mysqldb
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+      - SERVICE_PORTS=80
+      - LANG=es_AR.utf8
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: any
+        max_attempts: 3
+        window: 120s
+      resources:
+        limits:
+          memory: 128m 
+  mysqldb:
+    image: "mysql"
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - /home/mariano/volumes/mysql_web2:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: tudai
+  myadmin:
+    image: "phpmyadmin/phpmyadmin"
+    environment:
+      PMA_HOST: mysqldb
+      PMA_USER: root
+      PMA_PASSWORD: tudai
+    ports:
+      - 8081:80
+    depends_on:
+      - mysqldb
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8083:8080
+    depends_on:
+      - mysqldb
+

@@ -1,0 +1,17 @@
+.demo-frame header, .demo-frame h1, .demo-frame .demo-conversion {
+	display: none;
+}
+
+.demo-wrapper {
+	min-height: 500px;
+}
+
+.bsap {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+video { border: 1px solid #ccc; display: block; margin: 0 0 20px 0; }
+		
+#canvas { margin-top: 20px; border: 1px solid #ccc; display: block; }
