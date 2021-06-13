@@ -21,29 +21,29 @@ switch ($urlParts[0]) {
 	case 'captcha':
 		$salasController->getCaptcha();
 		break;
-	case 'completed':
-		echo endTask($urlParts[1]);
-		break;
-	case 'home':
-		$taskController->showTasks();
-		break;
-	case 'tasks':
-		$taskController->showTasks();
-		break;
-	case 'login':
-		$userController->showLogin();
-		break;
-	case 'formRegistro':
-		$userController->showRegistrar();
-		break;
 	case 'registrar':
-		$userController->registrar();
+		$salasController->registrar();
 		break;
-	case 'verify':
-		$userController->verify();
-		break;
-	case 'logout':
-		$userController->logout();
+	// case 'home':
+	// 	$taskController->showTasks();
+	// 	break;
+	// case 'tasks':
+	// 	$taskController->showTasks();
+	// 	break;
+	// case 'login':
+	// 	$userController->showLogin();
+	// 	break;
+	// case 'formRegistro':
+	// 	$userController->showRegistrar();
+	// 	break;
+	// case 'registrar':
+	// 	$userController->registrar();
+	// 	break;
+	// case 'verify':
+	// 	$userController->verify();
+	// 	break;
+	// case 'logout':
+	// 	$userController->logout();
 	default:
 		echo '<h1>Error 404 - Page not found </h1>';
 		break;

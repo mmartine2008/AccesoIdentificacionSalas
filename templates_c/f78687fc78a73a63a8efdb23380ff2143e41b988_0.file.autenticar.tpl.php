@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-13 19:47:15
+/* Smarty version 3.1.39, created on 2021-06-13 19:57:31
   from '/var/www/html/templates/autenticar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c660c30e2b68_72550596',
+  'unifunc' => 'content_60c6632bdd2b88_60055525',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f78687fc78a73a63a8efdb23380ff2143e41b988' => 
     array (
       0 => '/var/www/html/templates/autenticar.tpl',
-      1 => 1623613632,
+      1 => 1623614243,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c660c30e2b68_72550596 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c6632bdd2b88_60055525 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -96,7 +96,7 @@ function content_60c660c30e2b68_72550596 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <div class="container border">
             
-            <form method="post" action="../app/acceso.php">
+            <form method="post" action="/registrar">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">

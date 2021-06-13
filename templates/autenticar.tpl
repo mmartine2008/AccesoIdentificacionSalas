@@ -42,7 +42,7 @@
         </div>
         <div class="container border">
             
-            <form method="post" action="../app/acceso.php">
+            <form method="post" action="/registrar">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">

@@ -33,5 +33,17 @@
             getCaptcha($captchaFont);
         }
 
+        public function error($message) {
+            $this->smarty->assign('errorlevel', 1);
+            $this->smarty->assign('message', $message);
+            $this->getSmarty()->display('templates/message.tpl');            
+        }
+
+        public function message($message) {
+            $this->smarty->assign('errorlevel', 0);
+            $this->smarty->assign('message', $message);
+            $this->getSmarty()->display('templates/message.tpl');            
+        }        
+
     }
         
