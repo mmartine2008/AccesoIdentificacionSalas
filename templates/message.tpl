@@ -16,24 +16,27 @@
         <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
         </div>
         <div class="d-flex p-2 justify-content-center">
-
             {if $errorlevel == 1}
                 <div class="alert alert-danger" role="alert">
                     {$message}
-                </div>
-                <div>
-                    <a class="btn btn-danger" href="/salas">Volver</a>
                 </div>
             {/if}
             {if $errorlevel == 0}
                 <div class="alert alert-primary" role="alert">
                     {$message}
                 </div>            
-                <div>
-                    <a class="btn btn-success" href="/salas">Continuar</a>
-                </div>
             {/if}
-
+        </div>
+        <div class="d-flex p-2 justify-content-center">
+            {if $errorlevel == 0}
+            <div>
+                <a class="btn btn-success" href="/salas">Continuar</a>
+            </div>
+            {else}
+            <div>
+                <a class="btn btn-danger" href="/salas">Volver</a>
+            </div>
+            {/if}
         </div>
             
     </div>
