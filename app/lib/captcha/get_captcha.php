@@ -65,7 +65,8 @@
 	imagejpeg($captchaImage); 
 	imagedestroy($captchaImage);
 	$_SESSION['captcha'] = $captcha; 
-	function hextorgb ($hexstring){
+
+	function hextorgb ($hexstring) {
 		$integar = hexdec($hexstring);
 		return array(
 			"red" => 0xFF & ($integar >> 0x10),

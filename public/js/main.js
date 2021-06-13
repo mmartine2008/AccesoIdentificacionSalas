@@ -61,7 +61,7 @@ $( document ).ready(function() {
             {
                 "targets": 5,
                 "render": function ( data, type, row ) {
-               return '<a name="deleteAnchor" id="deleteAnchor" class="ajaxCallDelete" value="'+row[0]+'" href="/acceder/'+row[0]+'">Acceder</a>';
+               return '<a name="deleteAnchor" id="deleteAnchor" class="ajaxCallDelete" value="'+row[0]+'" href="/autenticar/'+row[0]+'">Acceder</a>';
                    },
                 "className": 'text-center'
                }
