@@ -31,10 +31,10 @@ class SalasModel extends Model {
 
         try {
         
-            $nombre_fichero_tmp = tempnam ( $config['foto_path'], 'salas_' ).'.png';
-
-            $gestor = fopen($nombre_fichero_tmp, "w");
-            
+            $nombre_fichero_tmp = tempnam ( $config['foto_path'], 'salas_' );
+            unlink($nombre_fichero_tmp);
+            $nombreCompleto = $nombre_fichero_tmp.'.png';
+            $gestor = fopen($nombreCompleto, "w");
 
             $data = str_replace('data:image/png;base64,', '', $contenido);
             $contenido = base64_decode($data);
@@ -49,7 +49,7 @@ class SalasModel extends Model {
             fclose($gestor);
             
     
-            return $nombre_fichero_tmp;
+            return $nombreCompleto;
     
         } catch (Exception $e) {
             var_dump($e);
