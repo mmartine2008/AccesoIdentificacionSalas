@@ -57,6 +57,14 @@ class SalasModel extends Model {
         }
     }
 
+    function getOneAcreditacion($id_acreditacion) {
+        $query = $this->getDb()->prepare('SELECT * FROM acreditaciones WHERE id = ?');
+
+        $query->execute([$id_acreditacion]);
+        $result = $query->fetchAll(PDO::FETCH_OBJ);
+        return $result[0];        
+    }
+
     function registrar($datos) {
 
         $sala_id = $datos['id_sala'];

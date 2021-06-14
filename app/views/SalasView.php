@@ -42,6 +42,18 @@
             getCaptcha($captchaFont);
         }
 
+        public function mostrarImagen($nombreArchivo) {
+            $contenido = file_get_contents($nombreArchivo);
+
+            //$contenido = base64_encode($contenido);
+            // Codigo para recuperar la imagen y mostrarla.
+            $im = imagecreatefromstring($contenido);
+            header('Content-Type: image/png');
+            imagepng($im);
+            imagedestroy($im);
+            // die;            
+        }
+
         public function error($message) {
             $this->smarty->assign('errorlevel', 1);
             $this->smarty->assign('message', $message);

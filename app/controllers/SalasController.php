@@ -54,4 +54,9 @@ class SalasController {
         $this->view->getCaptcha();
     }
 
+    public function mostrarImagen($id_acreditacion) {
+        $acreditacion = $this->model->getOneAcreditacion($id_acreditacion);
+        $this->view->mostrarImagen($acreditacion->foto_file);
+    }
+
 }

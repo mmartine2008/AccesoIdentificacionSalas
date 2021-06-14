@@ -18,7 +18,10 @@ switch ($urlParts[0]) {
 	case 'autenticar':
 		$salasController->autenticar($urlParts[1]);
 		break;
-	case 'captcha':
+	case 'imagen':
+		$salasController->mostrarImagen($urlParts[1]);
+		break;
+		case 'captcha':
 		$salasController->getCaptcha();
 		break;
 	case 'registrar':
