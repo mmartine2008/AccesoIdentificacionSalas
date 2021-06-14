@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-14 00:11:48
+/* Smarty version 3.1.39, created on 2021-06-14 15:01:22
   from '/var/www/html/templates/salas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c69ec408e339_27898200',
+  'unifunc' => 'content_60c76f42894d42_25537778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0958adaddeb26342646171d766e14f09cbf21cab' => 
     array (
       0 => '/var/www/html/templates/salas.tpl',
-      1 => 1623629503,
+      1 => 1623682878,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c69ec408e339_27898200 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c76f42894d42_25537778 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -62,11 +62,7 @@ function content_60c69ec408e339_27898200 (Smarty_Internal_Template $_smarty_tpl)
     <div>
         <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
         </div>
-        <div class="d-flex p-2 justify-content-center">
-            <input type="text" id="id_search" placeholder="Buscar ...">
-            <input type="button" id="bt_buscar" value="...">
-        </div>
-        <div class="d-flex p-2 justify-content-center" id="div_resultados_busqueda">
+                <div class="d-flex p-2 justify-content-center" id="div_resultados_busqueda">
         </div>        
         <div class="d-flex p-2 justify-content-center">
             <table class="table table-striped" id='id_tabla_resultados'>

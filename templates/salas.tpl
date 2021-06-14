@@ -22,10 +22,10 @@
     <div>
         <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
         </div>
-        <div class="d-flex p-2 justify-content-center">
+        {* <div class="d-flex p-2 justify-content-center">
             <input type="text" id="id_search" placeholder="Buscar ...">
             <input type="button" id="bt_buscar" value="...">
-        </div>
+        </div> *}
         <div class="d-flex p-2 justify-content-center" id="div_resultados_busqueda">
         </div>        
         <div class="d-flex p-2 justify-content-center">

@@ -11,7 +11,7 @@ class SalasModel extends Model {
      */
     function getAll() {
 
-        $query = $this->getDb()->prepare('SELECT * FROM sala');
+        $query = $this->getDb()->prepare('SELECT * FROM sala ORDER BY fecha, hora, nombre');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
