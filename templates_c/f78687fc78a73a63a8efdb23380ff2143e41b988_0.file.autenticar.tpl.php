@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-13 19:57:31
+/* Smarty version 3.1.39, created on 2021-06-14 00:45:27
   from '/var/www/html/templates/autenticar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c6632bdd2b88_60055525',
+  'unifunc' => 'content_60c6a6a73c6cd0_13300078',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f78687fc78a73a63a8efdb23380ff2143e41b988' => 
     array (
       0 => '/var/www/html/templates/autenticar.tpl',
-      1 => 1623614243,
+      1 => 1623631526,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c6632bdd2b88_60055525 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c6a6a73c6cd0_13300078 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -88,15 +88,19 @@ function content_60c6632bdd2b88_60055525 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <div class="d-flex p-2 justify-content-center">
             <div class="d-flex p-2 justify-content-center">
-                Nombre de la sala / Evento: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">Sala 1</p></div>
+                Nombre de la sala / Evento: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold"><?php echo $_smarty_tpl->tpl_vars['nombre']->value;?>
+</p></div>
             </div>
             <div class="d-flex p-2 justify-content-center">
-                Responsable / Anfitrión: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">Virginia Mauco</p></div>
+                Responsable / Anfitrión: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold"><?php echo $_smarty_tpl->tpl_vars['responsable']->value;?>
+</p></div>
             </div>
         </div>
         <div class="container border">
             
             <form method="post" action="/registrar">
+                <input name="id_sala"  type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['sala_id']->value;?>
+">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
@@ -152,13 +156,10 @@ function content_60c6632bdd2b88_60055525 (Smarty_Internal_Template $_smarty_tpl)
                             name="celular"
                             type="text" class="form-control" id="celular" placeholder="(cod area) numero" >
                     </div>
-
-                </div>
-                <div class="row p-2">
                     <div class="col form-group">								
 						<label class="col control-label"><img style="border: 1px solid #D3D0D0" src="/captcha?rand" id="captcha"></label>
 						
-           				<div class="col">
+           				<div class="col justify-content-center">
                             <a 
                                 href="javascript:void(0)" 
                                 id="reloadCaptcha">
@@ -166,9 +167,12 @@ function content_60c6632bdd2b88_60055525 (Smarty_Internal_Template $_smarty_tpl)
                                 <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad">                                
                         </div>
                         
-                    </div>     
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col justify-content-center ">
                         <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden">
+                        
                         <button type="submit" class="btn btn-primary" id="btEnviar">Acreditarme</button>
                     </div>               
                 </div>

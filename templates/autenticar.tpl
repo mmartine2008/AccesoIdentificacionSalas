@@ -34,15 +34,16 @@
         </div>
         <div class="d-flex p-2 justify-content-center">
             <div class="d-flex p-2 justify-content-center">
-                Nombre de la sala / Evento: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">Sala 1</p></div>
+                Nombre de la sala / Evento: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">{$nombre}</p></div>
             </div>
             <div class="d-flex p-2 justify-content-center">
-                Responsable / Anfitrión: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">Virginia Mauco</p></div>
+                Responsable / Anfitrión: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">{$responsable}</p></div>
             </div>
         </div>
         <div class="container border">
             
             <form method="post" action="/registrar">
+                <input name="id_sala"  type="hidden" value="{$sala_id}">
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
@@ -98,13 +99,10 @@
                             name="celular"
                             type="text" class="form-control" id="celular" placeholder="(cod area) numero" >
                     </div>
-
-                </div>
-                <div class="row p-2">
                     <div class="col form-group">								
 						<label class="col control-label"><img style="border: 1px solid #D3D0D0" src="/captcha?rand" id="captcha"></label>
 						
-           				<div class="col">
+           				<div class="col justify-content-center">
                             <a 
                                 href="javascript:void(0)" 
                                 id="reloadCaptcha">
@@ -112,9 +110,12 @@
                                 <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad">                                
                         </div>
                         
-                    </div>     
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col justify-content-center ">
                         <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden">
+                        
                         <button type="submit" class="btn btn-primary" id="btEnviar">Acreditarme</button>
                     </div>               
                 </div>

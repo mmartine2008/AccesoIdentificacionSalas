@@ -22,32 +22,14 @@ services:
       resources:
         limits:
           memory: 128m 
-  mysqldb:
-    image: "mysql"
-    ports:
-      - 3306:3306
-    command: --default-authentication-plugin=mysql_native_password
+  pgdb:
+    image: postgres:9.4
     volumes:
-      - /home/mariano/volumes/mysql_web2:/var/lib/mysql
-    restart: always
+      - pgdata:/var/lib/postgresql/data
     environment:
-      MYSQL_ROOT_PASSWORD: tudai
-  myadmin:
-    image: "phpmyadmin/phpmyadmin"
-    environment:
-      PMA_HOST: mysqldb
-      PMA_USER: root
-      PMA_PASSWORD: tudai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres      
     ports:
-      - 8081:80
-    depends_on:
-      - mysqldb
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8083:8080
-    depends_on:
-      - mysqldb
-
+      - 5432:5432  
+volumes:
+  pgdata:

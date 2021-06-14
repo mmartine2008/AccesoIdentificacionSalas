@@ -17,13 +17,22 @@
             return $this->smarty;        
         }
 
-        public function showAll() {
+        public function showAll($salas) {
+
+            $this->smarty->assign('salas', json_encode($salas));
+
             $this->getSmarty()->display('templates/salas.tpl');            
             
         }
 
-        public function autenticar($id) {
-            $this->smarty->assign('id_sala', $id);
+        public function autenticar($sala) {
+            
+            $this->smarty->assign('sala_id', $sala->id);
+            $this->smarty->assign('fecha', $sala->fecha);
+            $this->smarty->assign('hora', $sala->hora);
+            $this->smarty->assign('nombre', $sala->nombre);
+            $this->smarty->assign('responsable', $sala->responsable);  
+
             $this->getSmarty()->display('templates/autenticar.tpl');            
         }
 

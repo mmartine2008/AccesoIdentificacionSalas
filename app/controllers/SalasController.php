@@ -1,6 +1,7 @@
 <?php
 
 require_once(BASE_SERVER.'/app/views/SalasView.php');
+require_once(BASE_SERVER.'/app/models/SalasModel.php');
 
 class SalasController {
 
@@ -8,16 +9,19 @@ class SalasController {
 
     function __construct() {
         $this->view = new SalasView();
+        $this->model = new SalasModel();
     }    
     
     public function showAll() {
         
-        $this->view->showAll();
+        $salas = $this->model->getAll();
+        $this->view->showAll($salas);
     }
 
     public function autenticar($id) {
 
-        $this->view->autenticar($id);
+        $sala = $this->model->getOne($id);
+        $this->view->autenticar($sala);
 
     }
 
@@ -37,7 +41,13 @@ class SalasController {
             return;
         }
 
-        $this->view->message('Registro exitoso');
+        if ($this->model->registrar($_POST)) {
+            $this->view->message('Registro exitoso');
+        } else {
+            $this->view->error('Error de servidor');
+        }
+
+        
     }
 
     public function getCaptcha() {

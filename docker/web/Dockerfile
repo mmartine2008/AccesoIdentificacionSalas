@@ -13,6 +13,8 @@ RUN apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev \
      --with-jpeg-dir=/usr/include \
   && docker-php-ext-install gd 
 
+RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
+
 RUN docker-php-ext-install mbstring
 
 RUN docker-php-ext-install zip

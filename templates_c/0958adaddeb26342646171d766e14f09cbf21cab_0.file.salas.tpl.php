@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-13 19:28:43
+/* Smarty version 3.1.39, created on 2021-06-14 00:11:48
   from '/var/www/html/templates/salas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c65c6b352fb8_07171751',
+  'unifunc' => 'content_60c69ec408e339_27898200',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0958adaddeb26342646171d766e14f09cbf21cab' => 
     array (
       0 => '/var/www/html/templates/salas.tpl',
-      1 => 1623612473,
+      1 => 1623629503,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c65c6b352fb8_07171751 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c69ec408e339_27898200 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +50,15 @@ function content_60c65c6b352fb8_07171751 (Smarty_Internal_Template $_smarty_tpl)
 /css/jquery.dataTables.min.css'>
 </head>
 <body>
+    <?php echo '<script'; ?>
+>
+        dataSet = '<?php echo $_smarty_tpl->tpl_vars['salas']->value;?>
+'
+        dataSet = JSON.parse(dataSet);
+        actualizaTabla();
+    <?php echo '</script'; ?>
+>
+    
     <div>
         <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
         </div>

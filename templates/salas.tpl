@@ -13,6 +13,12 @@
     <link rel='stylesheet' type='text/css' media='screen' href='{$base_url}/css/jquery.dataTables.min.css'>
 </head>
 <body>
+    <script>
+        dataSet = '{$salas}'
+        dataSet = JSON.parse(dataSet);
+        actualizaTabla();
+    </script>
+    
     <div>
         <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
         </div>

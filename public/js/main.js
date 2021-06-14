@@ -53,15 +53,15 @@ $( document ).ready(function() {
             { title: "Acceso" }
         ],
         columnDefs: [
-            {"targets": 0, "render": function ( data, type, row ) { return row[1];}}, 
-            {"targets": 1, "render": function ( data, type, row ) { return row[2];}}, 
-            {"targets": 2, "render": function ( data, type, row ) { return row[3];}}, 
-            {"targets": 3, "render": function ( data, type, row ) { return row[4];}}, 
-            {"targets": 4, "render": function ( data, type, row ) { return row[5];}}, 
+            {"targets": 0, "render": function ( data, type, row ) { return row['fecha'];}}, 
+            {"targets": 1, "render": function ( data, type, row ) { return row['hora'];}}, 
+            {"targets": 2, "render": function ( data, type, row ) { return row['nombre'];}}, 
+            {"targets": 3, "render": function ( data, type, row ) { return row['responsable'];}}, 
+            {"targets": 4, "render": function ( data, type, row ) { return row['mail'];}}, 
             {
                 "targets": 5,
                 "render": function ( data, type, row ) {
-               return '<a name="deleteAnchor" id="deleteAnchor" class="ajaxCallDelete" value="'+row[0]+'" href="/autenticar/'+row[0]+'">Acceder</a>';
+               return '<a name="deleteAnchor" id="deleteAnchor" class="ajaxCallDelete" value="'+row['id']+'" href="/autenticar/'+row['id']+'">Acceder</a>';
                    },
                 "className": 'text-center'
                }
