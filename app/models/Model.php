@@ -1,19 +1,17 @@
 <?php
 
-require_once(BASE_SERVER.'/app/config/config.php');
-
 class Model {
 
     private $db;
 
-    function __construct()
+    function __construct($baseConfig)
     {
-        $this->db = $this->create_connection();
+        $this->db = $this->create_connection($baseConfig);
     }
 
-    public function create_connection() {
+    public function create_connection($baseConfig) {
 
-        global $config;
+        $config = $baseConfig;
 
         // Atencion: Modificar esto segun la instalacion:
         $host = $config['host'];

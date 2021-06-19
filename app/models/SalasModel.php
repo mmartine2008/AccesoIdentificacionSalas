@@ -5,6 +5,13 @@ require_once(BASE_SERVER.'/app/config/config.php');
 
 class SalasModel extends Model {
 
+    function __construct()
+    {
+        global $config;
+        
+        $this->db = $this->create_connection($config['majen']);
+    }
+
     /**
      * @return array
      * Retorna todas las tareas almacenadas en la tabla task

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-14 00:45:27
+/* Smarty version 3.1.39, created on 2021-06-14 17:29:30
   from '/var/www/html/templates/autenticar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c6a6a73c6cd0_13300078',
+  'unifunc' => 'content_60c791fa982a56_03446547',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f78687fc78a73a63a8efdb23380ff2143e41b988' => 
     array (
       0 => '/var/www/html/templates/autenticar.tpl',
-      1 => 1623631526,
+      1 => 1623691767,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c6a6a73c6cd0_13300078 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60c791fa982a56_03446547 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -151,7 +151,7 @@ function content_60c6a6a73c6cd0_13300078 (Smarty_Internal_Template $_smarty_tpl)
                             type="email" class="form-control" id="email" placeholder="email" >
                     </div>
                     <div class="col form-group">
-                        <label for="email">Celular *</label>
+                        <label for="email">Celular</label>
                         <input 
                             name="celular"
                             type="text" class="form-control" id="celular" placeholder="(cod area) numero" >

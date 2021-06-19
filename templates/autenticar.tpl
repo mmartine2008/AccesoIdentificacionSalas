@@ -94,7 +94,7 @@
                             type="email" class="form-control" id="email" placeholder="email" >
                     </div>
                     <div class="col form-group">
-                        <label for="email">Celular *</label>
+                        <label for="email">Celular</label>
                         <input 
                             name="celular"
                             type="text" class="form-control" id="celular" placeholder="(cod area) numero" >
