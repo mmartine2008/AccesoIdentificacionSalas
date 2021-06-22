@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-13 21:19:16
+/* Smarty version 3.1.39, created on 2021-06-22 14:37:14
   from '/var/www/html/templates/message.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c67654e059c3_41128723',
+  'unifunc' => 'content_60d1f59ae371a9_98937984',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '07f7be3d5406ea15416e3c3a71118ec817d4c85c' => 
     array (
       0 => '/var/www/html/templates/message.tpl',
-      1 => 1623619148,
+      1 => 1624372625,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c67654e059c3_41128723 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d1f59ae371a9_98937984 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -36,16 +36,17 @@ function content_60c67654e059c3_41128723 (Smarty_Internal_Template $_smarty_tpl)
  src='<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /js/bootstrap.bundle.min.js'><?php echo '</script'; ?>
 >
-    
+
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /css/jquery.dataTables.min.css'>
 </head>
 <body>
-    <div>
-        <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
+    <div class="container">
+        <div class="d-flex p-2"><h2>Salas y Eventos Programados por TICs</h2>
         </div>
+        <hr>
         <div class="d-flex p-2 justify-content-center">
             <?php if ($_smarty_tpl->tpl_vars['errorlevel']->value == 1) {?>
                 <div class="alert alert-danger" role="alert">
@@ -57,7 +58,7 @@ function content_60c67654e059c3_41128723 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="alert alert-primary" role="alert">
                     <?php echo $_smarty_tpl->tpl_vars['message']->value;?>
 
-                </div>            
+                </div>
             <?php }?>
         </div>
         <div class="d-flex p-2 justify-content-center">
@@ -71,8 +72,9 @@ function content_60c67654e059c3_41128723 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <?php }?>
         </div>
-            
+
     </div>
 </body>
-</html><?php }
+</html>
+<?php }
 }

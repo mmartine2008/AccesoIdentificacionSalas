@@ -5,7 +5,7 @@
 
     <title>Identificación Salas</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    
+
     <link rel='stylesheet' type='text/css' media='screen' href='{$base_url}/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='{$base_url}/css/jquery.dataTables.min.css'>
     <link rel="stylesheet" type="text/css" href="{$base_url}/css/camara.css">
@@ -17,58 +17,102 @@
     <script src='{$base_url}/js/jquery-3.6.0.min.js'></script>
     <script src='{$base_url}/js/bootstrap.bundle.min.js'></script>
     <script src='{$base_url}/js/jquery.dataTables.min.js'></script>
-    <script src="{$base_url}/js/camcanvas.js"></script>    
-    <script src="{$base_url}/js/acceso.js"></script>  
+    <script src="{$base_url}/js/camcanvas.js"></script>
+    <script src="{$base_url}/js/acceso.js"></script>
     <script src="{$base_url}/js/load_captcha.js"></script>
-    
+
     <script src="{$base_url}/js/camara.js"></script>
     <script src="{$base_url}/js/camcanvas.js"></script>
 
-
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    </style>
 
 </head>
-<body > 
+<body >
 
     <div class="m-2">
-        <div class="d-flex justify-content-center"><h1>Identificación para acceso a la sala</h1> 
+        <div class="container d-flex "><h2>Identificación para acceso a la sala</h2>
         </div>
-        <div class="d-flex p-2 justify-content-center">
-            <div class="d-flex p-2 justify-content-center">
-                Nombre de la sala / Evento: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">{$nombre}</p></div>
+        <div class="container d-flex datos-sala" >
+            <div class="izquierda d-flex">
+              Nombre de la sala / Evento: <p id="i_sala_nombre" class="font-weight-bold">{$nombre}</p>
             </div>
-            <div class="d-flex p-2 justify-content-center">
-                Responsable / Anfitrión: <div class="px-2 font-weight-bold"><p id="i_sala_nombre" class="font-weight-bold">{$responsable}</p></div>
+            <div class="derecha d-flex">
+              Responsable / Anfitrión: <p id="i_sala_nombre" class="font-weight-bold">{$responsable}</p>
             </div>
         </div>
-        <div class="container border">
-            
+        <div class="container">
+          <hr>
+        </div>
+        <div class="container">
+
+            <div class="alert alert-primary" role="alert">
+                Complete el siguiente formulario para recibir por mail el enlace la sala.
+                El registro quedará disponible para el anfitrión.
+            </div>
+
+
             <form method="post" action="/registrar">
                 <input name="id_sala"  type="hidden" value="{$sala_id}">
                 <div class="row">
-                    <div class="col">
+                        <div class="col-lg-8">
+                              <div class="form-group row">
+                                    <label for="apellido" class="col-sm-2 col-form-label">Apellido *</label>
+                                    <div class="col-sm-10">
+                                      <input   type="text"  class="form-control"   name="apellido"    id="apellido" aria-describedby="emailHelp" placeholder="García" >
+                                    </div>
+                              </div>
+                              <div class="form-group row">
+                                    <label for="nombres" class="col-sm-2 col-form-label">Nombres *</label>
+                                    <div class="col-sm-10">
+                                    <input
+                                        name="nombres"
+                                        type="text" class="form-control" id="nombres" placeholder="Juana María" >
+                              </div></div>
+                              <div class="form-group row">
+                                  <label for="documento" class="col-sm-2 col-form-label">Documento *</label>
+                                  <div class="col-sm-10">
+                                  <input
+                                      name = "documento"
+                                      type="text" class="form-control" id="documento" placeholder="18568997" >
+                              </div></div>
+                              <div class="form-group row">
+                                  <label for="email" class="col-sm-2 col-form-label">Email *</label>
+                                  <div class="col-sm-10">
+                                  <input
+                                      name="email"
+                                      type="email" class="form-control" id="email" placeholder="jmgarcia@gmail.com" >
+                              </div></div>
+                              <div class="form-group row">
+                                  <label for="email" class="col-sm-2 col-form-label">Celular</label>
+                                  <div class="col-sm-10">
+                                  <input
+                                      name="celular"
+                                      type="text" class="form-control" id="celular" placeholder="2494123456" >
+                              </div></div>
+                              <div class="form-group row">
+          						                <label class="col-sm-6 control-label"><img style="border: 1px solid #D3D0D0" src="/captcha?rand" id="captcha"></label>
+
+                     				    <div class="col-sm-6">
+                                      <a
+                                          href="javascript:void(0)"
+                                          id="reloadCaptcha">
+                                          <small id="passwordHelpBlock" class="form-text text-muted"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                                            Recargar el código
+                                          </small></a>
+                                          <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad">
+                                  </div>
+
+                              </div>
+
+
+
+
+                      </div>
+                    <div class="col-lg-4">
                         <div class="form-group">
-                            <label for="apellido">Apellido *</label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                name="apellido"
-                                id="apellido" aria-describedby="emailHelp" placeholder="Apellido" >
-                        </div>
-                        <div class="form-group">
-                            <label for="nombres">Nombres *</label>
-                            <input 
-                                name="nombres"
-                                type="text" class="form-control" id="nombres" placeholder="Nombres" >
-                        </div>
-                        <div class="form-group">
-                            <label for="documento">Documento *</label>
-                            <input 
-                                name = "documento"
-                                type="text" class="form-control" id="documento" placeholder="Documento" >
-                        </div>
-                    </div>
-                    <div class="col p-2"> 
-                        <div class="form-group">
+                          <label for="imagen" class="col-form-label imagen">Foto personal *</label>
                             <div>
                                 <div style="width: 320px; height: 240px;">
                                     <div id="promoNode"></div>
@@ -78,52 +122,34 @@
                                     </div>
                                 </div>
                              </div>
+                             <small id="photoHelpBlock" class="form-text text-muted">
+                               Capture una imagen clara de su rostro con la cámara de su dispositivo
+                             </small>
                         </div>
-                    </div>   
-                </div>             
-                <div class="row">
-                    <div class="col form-group">
-                        <label for="Ayuda">Ingrese la información solicitada, capture una imagen clara de su rostro con la cámara de su dispositivo desde este formulario. Una vez finalizado oprima el botón “ACREDITARME” y recibirá un mail con el enlace de acceso. El registro quedará disponible para el anfitrión.</label>
-                    </div>
-                </div>             
-                <div class="row">
-                    <div class="col form-group">
-                        <label for="email">Email *</label>
-                        <input 
-                            name="email"
-                            type="email" class="form-control" id="email" placeholder="email" >
-                    </div>
-                    <div class="col form-group">
-                        <label for="email">Celular</label>
-                        <input 
-                            name="celular"
-                            type="text" class="form-control" id="celular" placeholder="(cod area) numero" >
-                    </div>
-                    <div class="col form-group">								
-						<label class="col control-label"><img style="border: 1px solid #D3D0D0" src="/captcha?rand" id="captcha"></label>
-						
-           				<div class="col justify-content-center">
-                            <a 
-                                href="javascript:void(0)" 
-                                id="reloadCaptcha">
-                                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a> Recargar codigo
-                                <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad">                                
-                        </div>
-                        
                     </div>
                 </div>
+                <div class="row">
+
+                </div>
+
                 <div class="row">
                     <div class="col justify-content-center ">
                         <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden">
-                        
-                        <button type="submit" class="btn btn-primary" id="btEnviar">Acreditarme</button>
-                    </div>               
+
+                        <button type="submit" class="btn btn-primary grow" id="btEnviar">Acreditarme</button>
+                    </div>
                 </div>
 
+
+
+
             </form>
+
+
             </div>
+
         </div>
-       
+
 </div>
 </body>
 </html>

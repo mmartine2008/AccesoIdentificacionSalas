@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-14 15:01:22
+/* Smarty version 3.1.39, created on 2021-06-22 14:31:44
   from '/var/www/html/templates/salas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60c76f42894d42_25537778',
+  'unifunc' => 'content_60d1f450087188_67608757',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0958adaddeb26342646171d766e14f09cbf21cab' => 
     array (
       0 => '/var/www/html/templates/salas.tpl',
-      1 => 1623682878,
+      1 => 1624372299,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60c76f42894d42_25537778 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d1f450087188_67608757 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +44,8 @@ function content_60c76f42894d42_25537778 (Smarty_Internal_Template $_smarty_tpl)
  src='<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /js/main.js'><?php echo '</script'; ?>
 >
+        <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
+/css/camara.css">
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
@@ -52,23 +54,26 @@ function content_60c76f42894d42_25537778 (Smarty_Internal_Template $_smarty_tpl)
 <body>
     <?php echo '<script'; ?>
 >
+        
         dataSet = '<?php echo $_smarty_tpl->tpl_vars['salas']->value;?>
 '
         dataSet = JSON.parse(dataSet);
         actualizaTabla();
     <?php echo '</script'; ?>
 >
-    
-    <div>
-        <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
+
+    <div class="container">
+        <div class="d-flex p-2"><h2>Salas y Eventos Programados por TICs</h2>
         </div>
-                <div class="d-flex p-2 justify-content-center" id="div_resultados_busqueda">
-        </div>        
-        <div class="d-flex p-2 justify-content-center">
+        <hr>
+        <div class="d-flex p-2 justify-content-center" id="div_resultados_busqueda">
+        </div>
+        <div class="p-2 justify-content-center">
             <table class="table table-striped" id='id_tabla_resultados'>
             </table>
-        </div>        
+        </div>
 </div>
 </body>
-</html><?php }
+</html>
+<?php }
 }

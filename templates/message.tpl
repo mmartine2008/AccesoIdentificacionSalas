@@ -7,14 +7,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src='{$base_url}/js/jquery-3.6.0.min.js'></script>
     <script src='{$base_url}/js/bootstrap.bundle.min.js'></script>
-    
+
     <link rel='stylesheet' type='text/css' media='screen' href='{$base_url}/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='{$base_url}/css/jquery.dataTables.min.css'>
 </head>
 <body>
-    <div>
-        <div class="d-flex p-2 justify-content-center"><h1>Salas y Eventos Programados por TICs</h1> 
+    <div class="container">
+        <div class="d-flex p-2"><h2>Salas y Eventos Programados por TICs</h2>
         </div>
+        <hr>
         <div class="d-flex p-2 justify-content-center">
             {if $errorlevel == 1}
                 <div class="alert alert-danger" role="alert">
@@ -24,7 +25,7 @@
             {if $errorlevel == 0}
                 <div class="alert alert-primary" role="alert">
                     {$message}
-                </div>            
+                </div>
             {/if}
         </div>
         <div class="d-flex p-2 justify-content-center">
@@ -38,7 +39,7 @@
             </div>
             {/if}
         </div>
-            
+
     </div>
 </body>
 </html>
