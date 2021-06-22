@@ -18,14 +18,14 @@ class SalasModel extends Model {
      */
     function getAll() {
 
-        $query = $this->getDb()->prepare('SELECT * FROM sala ORDER BY fecha, hora, nombre');
+        $query = $this->db->prepare('SELECT * FROM sala ORDER BY fecha, hora, nombre');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     function getOne($id) {
 
-        $query = $this->getDb()->prepare('SELECT * FROM sala WHERE id = ?');
+        $query = $this->db->prepare('SELECT * FROM sala WHERE id = ?');
 
         $query->execute([$id]);
         $result = $query->fetchAll(PDO::FETCH_OBJ);
@@ -46,15 +46,8 @@ class SalasModel extends Model {
             $data = str_replace('data:image/png;base64,', '', $contenido);
             $contenido = base64_decode($data);
 
-            // Codigo para recuperar la imagen y mostrarla.
-            // $im = imagecreatefromstring($contenido);
-            // header('Content-Type: image/png');
-            // imagepng($im);
-            // imagedestroy($im);
-            // die;
             fwrite($gestor, $contenido);
             fclose($gestor);
-            
     
             return $nombreCompleto;
     
@@ -65,7 +58,7 @@ class SalasModel extends Model {
     }
 
     function getOneAcreditacion($id_acreditacion) {
-        $query = $this->getDb()->prepare('SELECT * FROM acreditaciones WHERE id = ?');
+        $query = $this->db->prepare('SELECT * FROM acreditaciones WHERE id = ?');
 
         $query->execute([$id_acreditacion]);
         $result = $query->fetchAll(PDO::FETCH_OBJ);
@@ -88,7 +81,7 @@ class SalasModel extends Model {
             $sql = "INSERT INTO acreditaciones (sala_id, apellido, nombres, documento, celular, email, foto_file) 
             VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-            $query = $this->getDb()->prepare($sql);
+            $query = $this->db->prepare($sql);
 
             $query->execute([$sala_id, $apellido, $nombres, $documento, $celular, $email, $nombreArchivo]);
             

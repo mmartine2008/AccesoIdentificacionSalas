@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: mydocker/apache:2.0.0.tudai
+    image: mydocker/apache:2.0.0.aulavirtual
     ports:
       - 80:80
     volumes:

@@ -4,10 +4,10 @@ class Model {
 
     private $db;
 
-    function __construct($baseConfig)
-    {
-        $this->db = $this->create_connection($baseConfig);
-    }
+    // function __construct($baseConfig)
+    // {
+    //     $this->db = $this->create_connection($baseConfig);
+    // }
 
     public function create_connection($baseConfig) {
 
@@ -24,14 +24,14 @@ class Model {
         try {
             $dsn = "pgsql:host=$host;port=$port;dbname=$database;";
         
-            $db = new PDO($dsn, $userName, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+            return new PDO($dsn, $userName, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
         } catch (Exception $e) {
-            echo('ERROR: ');
+            debug_print_backtrace();
             var_dump($e);
+            die(__FILE__.":".__LINE__);
         }
 
-        return $db;
     }
 
     public function getDb() {

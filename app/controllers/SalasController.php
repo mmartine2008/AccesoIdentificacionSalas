@@ -2,6 +2,7 @@
 
 require_once(BASE_SERVER.'/app/views/SalasView.php');
 require_once(BASE_SERVER.'/app/models/SalasModel.php');
+require_once(BASE_SERVER.'/app/models/ExamenModel.php');
 
 class SalasController {
 
@@ -10,6 +11,7 @@ class SalasController {
     function __construct() {
         $this->view = new SalasView();
         $this->model = new SalasModel();
+        $this->modelExamen = new ExamenModel();
     }    
     
     public function showAll() {
@@ -34,10 +36,33 @@ class SalasController {
         return ($generado == $recibido);
     }
 
+    public function validarMesaExamen()
+    {
+        $sala_id = $_POST['id_sala'];
+        $documento = $_POST['documento'];
+
+        $sala = (array) $this->model->getOne($sala_id);
+
+        if ($sala['es_sala_examen'] == 'N') {
+            return true; // Si no es sala examen, ya pasa el filtro
+        }
+
+        $id_llamado_mesa = $sala['id_llamado_mesa'];
+        
+        $resultado = $this->modelExamen->estaInscripto($documento, $id_llamado_mesa);
+
+        return $resultado;
+    }
+
     public function registrar() {
 
         if (!$this->captchaValido()) {
             $this->view->error('Codigo de seguridad captcha, no válido');
+            return;
+        }
+
+        if (!$this->validarMesaExamen()) {
+            $this->view->error('No estas inscripto en esta mesa');
             return;
         }
 
