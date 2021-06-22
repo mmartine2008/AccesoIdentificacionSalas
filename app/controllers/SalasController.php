@@ -61,6 +61,11 @@ class SalasController {
             return;
         }
 
+        if ($this->yaAcreditado()) {
+            $this->view->error('Ya estabas acreditado a esta sala');
+            return;
+        }
+
         if (!$this->validarMesaExamen()) {
             $this->view->error('No estas inscripto en esta mesa');
             return;
@@ -71,8 +76,17 @@ class SalasController {
         } else {
             $this->view->error('Error de servidor');
         }
-
         
+    }
+
+    private function yaAcreditado() {
+ 
+        $sala_id = $_POST['id_sala'];
+        $documento = $_POST['documento'];
+        
+        $resultado = $this->model->yaAcreditado($sala_id, $documento);
+        
+        return $resultado;
     }
 
     public function getCaptcha() {

@@ -30,7 +30,18 @@ class SalasModel extends Model {
         $query->execute([$id]);
         $result = $query->fetchAll(PDO::FETCH_OBJ);
         return $result[0];
-    }    
+    }   
+    
+    function yaAcreditado($sala_id, $documento) {
+        $sql = 'SELECT COUNT(*) AS cantidad FROM acreditaciones WHERE sala_id = ? AND documento = ?';
+        $query = $this->db->prepare($sql);
+
+        $query->execute([$sala_id, $documento]);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $acreditado = $result[0]['cantidad'] > 0;
+
+        return $acreditado;
+    }
 
     private function grabar_foto($contenido)
     {
