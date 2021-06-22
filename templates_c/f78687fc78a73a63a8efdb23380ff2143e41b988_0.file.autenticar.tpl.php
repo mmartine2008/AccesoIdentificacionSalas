@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-22 14:33:53
+/* Smarty version 3.1.39, created on 2021-06-22 17:53:57
   from '/var/www/html/templates/autenticar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d1f4d131fe74_81782420',
+  'unifunc' => 'content_60d223b58b9c13_31860573',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f78687fc78a73a63a8efdb23380ff2143e41b988' => 
     array (
       0 => '/var/www/html/templates/autenticar.tpl',
-      1 => 1624372412,
+      1 => 1624384329,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d1f4d131fe74_81782420 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d223b58b9c13_31860573 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -73,10 +73,7 @@ function content_60d1f4d131fe74_81782420 (Smarty_Internal_Template $_smarty_tpl)
  src="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /js/camara.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
-/js/camcanvas.js"><?php echo '</script'; ?>
->
+
 
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');

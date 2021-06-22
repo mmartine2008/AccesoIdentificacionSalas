@@ -22,7 +22,7 @@
     <script src="{$base_url}/js/load_captcha.js"></script>
 
     <script src="{$base_url}/js/camara.js"></script>
-    <script src="{$base_url}/js/camcanvas.js"></script>
+
 
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
