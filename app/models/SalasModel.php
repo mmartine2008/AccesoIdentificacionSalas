@@ -29,13 +29,9 @@ class SalasModel extends Model {
 
         $query = $this->db->prepare('
                         SELECT 
-                            sala.id, sala.fecha, sala.hora, sala.nombre,
-                            docentes.descripcion as responsable,
-                            sala.mail 
-                        FROM sala 
-                        LEFT JOIN docentes ON (sala.legajo = docentes.legajo)
-                        WHERE es_sala_mesa_examen = \'S\'
-                        ORDER BY fecha, hora, nombre');
+                            * 
+                        FROM vw_salas_mesas 
+                        ORDER BY horas');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
@@ -91,6 +87,21 @@ class SalasModel extends Model {
         $query->execute([$id_acreditacion]);
         $result = $query->fetchAll(PDO::FETCH_OBJ);
         return $result[0];        
+    }
+
+    function fechaHoraValido($id_sala) {
+
+        $sql = 'SELECT COUNT(*) AS cantidad 
+                    FROM sala 
+                    WHERE id = ? AND 
+                    horas < 24 and horas > 0';
+        $query = $this->db->prepare($sql);
+
+        $query->execute([$id_sala]);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $valido = $result[0]['cantidad'] > 0;
+
+        return $valido;
     }
 
     function registrar($datos) {

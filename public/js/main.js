@@ -61,7 +61,15 @@ $( document ).ready(function() {
             {
                 "targets": 5,
                 "render": function ( data, type, row ) {
-               return '<a name="deleteAnchor" id="deleteAnchor" class="ajaxCallDelete" value="'+row['id']+'" href="/autenticar/'+row['id']+'">Acceder</a>';
+                    if (row['horas'] < 0) {
+                        return 'Este evento ya sucedió';
+                    }
+
+                    if (row['horas'] > 24) {
+                        return 'No habilitado';
+                    }
+
+                    return '<a name="deleteAnchor" id="deleteAnchor" class="ajaxCallDelete" value="'+row['id']+'" href="/autenticar/'+row['id']+'">Acceder</a>';
                    },
                 "className": 'text-center'
                }

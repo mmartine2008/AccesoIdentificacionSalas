@@ -67,6 +67,12 @@ class SalasController {
             return;
         }
 
+        if (!$this->verificaHoraValido()) {
+            // No deberia llegar a este punto, solo a traves de un intento hacker
+            $this->view->error('Mesa aun no habilidata');
+            return;
+        }
+
         if ($this->yaAcreditado()) {
             $this->view->error('Ya estabas acreditado a esta sala');
             return;
@@ -94,6 +100,16 @@ class SalasController {
         
         return $resultado;
     }
+
+    private function verificaHoraValido() {
+ 
+        $sala_id = $_POST['id_sala'];
+
+        $resultado = $this->model->verificaHoraValido($sala_id);
+        
+        return $resultado;
+    }
+    
 
     public function getCaptcha() {
         $this->view->getCaptcha();
