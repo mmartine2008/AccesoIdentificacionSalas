@@ -92,7 +92,7 @@ class SalasModel extends Model {
     function fechaHoraValido($id_sala) {
 
         $sql = 'SELECT COUNT(*) AS cantidad 
-                    FROM sala 
+                    FROM vw_salas_mesas 
                     WHERE id = ? AND 
                     horas < 24 and horas > 0';
         $query = $this->db->prepare($sql);

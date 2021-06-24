@@ -105,7 +105,7 @@ class SalasController {
  
         $sala_id = $_POST['id_sala'];
 
-        $resultado = $this->model->verificaHoraValido($sala_id);
+        $resultado = $this->model->fechaHoraValido($sala_id);
         
         return $resultado;
     }

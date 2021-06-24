@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-22 14:37:14
+/* Smarty version 3.1.39, created on 2021-06-24 03:44:33
   from '/var/www/html/templates/message.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d1f59ae371a9_98937984',
+  'unifunc' => 'content_60d3ffa1738b41_31193438',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '07f7be3d5406ea15416e3c3a71118ec817d4c85c' => 
     array (
       0 => '/var/www/html/templates/message.tpl',
-      1 => 1624372625,
+      1 => 1624505726,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d1f59ae371a9_98937984 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d3ffa1738b41_31193438 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +41,15 @@ function content_60d1f59ae371a9_98937984 (Smarty_Internal_Template $_smarty_tpl)
 /css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /css/jquery.dataTables.min.css'>
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
+/css/camara.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+    </style>
 </head>
 <body>
     <div class="container">

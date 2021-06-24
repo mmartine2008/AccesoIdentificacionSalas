@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-06-22 17:53:57
+/* Smarty version 3.1.39, created on 2021-06-24 03:34:00
   from '/var/www/html/templates/autenticar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60d223b58b9c13_31860573',
+  'unifunc' => 'content_60d3fd28423708_30764403',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f78687fc78a73a63a8efdb23380ff2143e41b988' => 
     array (
       0 => '/var/www/html/templates/autenticar.tpl',
-      1 => 1624384329,
+      1 => 1624505638,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60d223b58b9c13_31860573 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60d3fd28423708_30764403 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -68,30 +68,39 @@ function content_60d223b58b9c13_31860573 (Smarty_Internal_Template $_smarty_tpl)
  src="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /js/load_captcha.js"><?php echo '</script'; ?>
 >
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
+/js/tooltip.js"><?php echo '</script'; ?>
+>
 
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
 /js/camara.js"><?php echo '</script'; ?>
 >
-
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
+/js/camcanvas.js"><?php echo '</script'; ?>
+>
 
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
     </style>
+    
 
 </head>
 <body >
-
     <div class="m-2">
         <div class="container d-flex "><h2>Identificación para acceso a la sala</h2>
         </div>
         <div class="container d-flex datos-sala" >
             <div class="izquierda d-flex">
-              Nombre de la sala / Evento: <p id="i_sala_nombre" class="font-weight-bold"><?php echo $_smarty_tpl->tpl_vars['nombre']->value;?>
+              Nombre de la sala: <p id="i_sala_nombre" class="font-weight-bold"> <?php echo $_smarty_tpl->tpl_vars['nombre']->value;?>
 </p>
             </div>
             <div class="derecha d-flex">
-              Responsable / Anfitrión: <p id="i_sala_nombre" class="font-weight-bold"><?php echo $_smarty_tpl->tpl_vars['responsable']->value;?>
+              Responsable: <p id="i_sala_nombre" class="font-weight-bold"> <?php echo $_smarty_tpl->tpl_vars['responsable']->value;?>
 </p>
             </div>
         </div>
@@ -101,8 +110,7 @@ function content_60d223b58b9c13_31860573 (Smarty_Internal_Template $_smarty_tpl)
         <div class="container">
 
             <div class="alert alert-primary" role="alert">
-                Complete el siguiente formulario para recibir por mail el enlace la sala.
-                El registro quedará disponible para el anfitrión.
+                Completa este formulario para acreditarte. Recibirás en <b>tu mail</b> (el declarado en este formulario) el link de acceso al final <b>una hora antes</b> del examen.
             </div>
 
 
@@ -146,16 +154,23 @@ function content_60d223b58b9c13_31860573 (Smarty_Internal_Template $_smarty_tpl)
                                       type="text" class="form-control" id="celular" placeholder="2494123456" >
                               </div></div>
                               <div class="form-group row">
-          						                <label class="col-sm-6 control-label"><img style="border: 1px solid #D3D0D0" src="/captcha?rand" id="captcha"></label>
+          						                
 
-                     				    <div class="col-sm-6">
+                     		     <div class="col-sm-6">
+						<label class="control-label" style="display: block;"><img  src="/captcha?rand" id="captcha" width="100%"></label>
+
+                                    </div>
+                     		     <div class="col-sm-6">
+					
                                       <a
                                           href="javascript:void(0)"
                                           id="reloadCaptcha">
                                           <small id="passwordHelpBlock" class="form-text text-muted"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                                             Recargar el código
-                                          </small></a>
-                                          <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad">
+                                          </small>
+                                          </a>
+                                          <br>
+                                          <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad" style="margin-top:5px;">
                                   </div>
 
                               </div>
@@ -168,17 +183,19 @@ function content_60d223b58b9c13_31860573 (Smarty_Internal_Template $_smarty_tpl)
                         <div class="form-group">
                           <label for="imagen" class="col-form-label imagen">Foto personal *</label>
                             <div>
-                                <div style="width: 320px; height: 240px;">
+                                <div style="width: 100%; height: auto;">
                                     <div id="promoNode"></div>
                                     <div>
-                                    <video id="video" class="video" autoplay width="320" height="240" ></video>
+                                    <video id="video" class="video" autoplay width="100%" height="auto" poster="img/dni.png"></video>
                                     <canvas id="canvas" class="video" hidden></canvas>
                                     </div>
                                 </div>
                              </div>
-                             <small id="photoHelpBlock" class="form-text text-muted">
-                               Capture una imagen clara de su rostro con la cámara de su dispositivo
-                             </small>
+                             <div id="photoHelpBlock">
+                             <small  class="form-text text-muted">
+                               Capture una imagen clara en la que se vea su rostro y su DNI. <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='img/dni.png' width='100%'/>">
+        Ver ejemplo
+      </a></small></div>
                         </div>
                     </div>
                 </div>
@@ -186,13 +203,13 @@ function content_60d223b58b9c13_31860573 (Smarty_Internal_Template $_smarty_tpl)
 
                 </div>
 
-                <div class="row">
-                    <div class="col justify-content-center ">
+                
+                    <div class=" justify-content-center ">
                         <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden">
 
                         <button type="submit" class="btn btn-primary grow" id="btEnviar">Acreditarme</button>
                     </div>
-                </div>
+                
 
 
 

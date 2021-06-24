@@ -18,8 +18,6 @@ function confirmar()
 
 $( document ).ready(function() {
     initCanvas(320,240);
-  
-    
 
     $('#btEnviar').click(confirmar);
 });

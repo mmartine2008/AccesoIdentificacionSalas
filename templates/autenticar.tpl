@@ -20,26 +20,29 @@
     <script src="{$base_url}/js/camcanvas.js"></script>
     <script src="{$base_url}/js/acceso.js"></script>
     <script src="{$base_url}/js/load_captcha.js"></script>
+    <script src="{$base_url}/js/tooltip.js"></script>
 
     <script src="{$base_url}/js/camara.js"></script>
-
+    <script src="{$base_url}/js/camcanvas.js"></script>
 
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
     </style>
+    
 
 </head>
 <body >
-
     <div class="m-2">
         <div class="container d-flex "><h2>Identificación para acceso a la sala</h2>
         </div>
         <div class="container d-flex datos-sala" >
             <div class="izquierda d-flex">
-              Nombre de la sala / Evento: <p id="i_sala_nombre" class="font-weight-bold">{$nombre}</p>
+              Nombre de la sala: <p id="i_sala_nombre" class="font-weight-bold"> {$nombre}</p>
             </div>
             <div class="derecha d-flex">
-              Responsable / Anfitrión: <p id="i_sala_nombre" class="font-weight-bold">{$responsable}</p>
+              Responsable: <p id="i_sala_nombre" class="font-weight-bold"> {$responsable}</p>
             </div>
         </div>
         <div class="container">
@@ -48,8 +51,7 @@
         <div class="container">
 
             <div class="alert alert-primary" role="alert">
-                Complete el siguiente formulario para recibir por mail el enlace la sala.
-                El registro quedará disponible para el anfitrión.
+                Completa este formulario para acreditarte. Recibirás en <b>tu mail</b> (el declarado en este formulario) el link de acceso al final <b>una hora antes</b> del examen.
             </div>
 
 
@@ -92,16 +94,23 @@
                                       type="text" class="form-control" id="celular" placeholder="2494123456" >
                               </div></div>
                               <div class="form-group row">
-          						                <label class="col-sm-6 control-label"><img style="border: 1px solid #D3D0D0" src="/captcha?rand" id="captcha"></label>
+          						                
 
-                     				    <div class="col-sm-6">
+                     		     <div class="col-sm-6">
+						<label class="control-label" style="display: block;"><img  src="/captcha?rand" id="captcha" width="100%"></label>
+
+                                    </div>
+                     		     <div class="col-sm-6">
+					
                                       <a
                                           href="javascript:void(0)"
                                           id="reloadCaptcha">
                                           <small id="passwordHelpBlock" class="form-text text-muted"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                                             Recargar el código
-                                          </small></a>
-                                          <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad">
+                                          </small>
+                                          </a>
+                                          <br>
+                                          <input type="text" name="securityCode" id="securityCode" class="form-control" placeholder="Código de seguridad" style="margin-top:5px;">
                                   </div>
 
                               </div>
@@ -114,17 +123,19 @@
                         <div class="form-group">
                           <label for="imagen" class="col-form-label imagen">Foto personal *</label>
                             <div>
-                                <div style="width: 320px; height: 240px;">
+                                <div style="width: 100%; height: auto;">
                                     <div id="promoNode"></div>
                                     <div>
-                                    <video id="video" class="video" autoplay width="320" height="240" ></video>
+                                    <video id="video" class="video" autoplay width="100%" height="auto" poster="img/dni.png"></video>
                                     <canvas id="canvas" class="video" hidden></canvas>
                                     </div>
                                 </div>
                              </div>
-                             <small id="photoHelpBlock" class="form-text text-muted">
-                               Capture una imagen clara de su rostro con la cámara de su dispositivo
-                             </small>
+                             <div id="photoHelpBlock">
+                             <small  class="form-text text-muted">
+                               Capture una imagen clara en la que se vea su rostro y su DNI. <a data-toggle="tooltip" data-placement="bottom" data-html="true" title="<img src='img/dni.png' width='100%'/>">
+        Ver ejemplo
+      </a></small></div>
                         </div>
                     </div>
                 </div>
@@ -132,13 +143,13 @@
 
                 </div>
 
-                <div class="row">
-                    <div class="col justify-content-center ">
+                
+                    <div class=" justify-content-center ">
                         <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden">
 
                         <button type="submit" class="btn btn-primary grow" id="btEnviar">Acreditarme</button>
                     </div>
-                </div>
+                
 
 
 
