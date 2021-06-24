@@ -16,9 +16,26 @@ class SalasModel extends Model {
      * @return array
      * Retorna todas las tareas almacenadas en la tabla task
      */
-    function getAll() {
+    function getMesasEventos() {
 
-        $query = $this->db->prepare('SELECT * FROM sala ORDER BY fecha, hora, nombre');
+        $query = $this->db->prepare('SELECT * FROM sala 
+                        WHERE es_sala_mesa_examen = \'N\'
+                        ORDER BY fecha, hora, nombre');
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function getMesasExamen() {
+
+        $query = $this->db->prepare('
+                        SELECT 
+                            sala.id, sala.fecha, sala.hora, sala.nombre,
+                            docentes.descripcion as responsable,
+                            sala.mail 
+                        FROM sala 
+                        LEFT JOIN docentes ON (sala.legajo = docentes.legajo)
+                        WHERE es_sala_mesa_examen = \'S\'
+                        ORDER BY fecha, hora, nombre');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }

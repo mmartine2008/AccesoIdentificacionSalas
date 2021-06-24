@@ -22,7 +22,7 @@
     </script>
 
     <div class="container">
-        <div class="d-flex p-2"><h2>Salas y Eventos Programados por TICs</h2>
+        <div class="d-flex p-2"><h2>{$titulo}</h2>
         </div>
         <hr>
         <div class="d-flex p-2 justify-content-center" id="div_resultados_busqueda">

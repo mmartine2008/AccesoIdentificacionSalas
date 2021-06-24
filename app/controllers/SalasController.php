@@ -14,11 +14,17 @@ class SalasController {
         $this->modelExamen = new ExamenModel();
     }    
     
-    public function showAll() {
+    public function showSalasMesas() {
         
-        $salas = $this->model->getAll();
-        $this->view->showAll($salas);
+        $salas = $this->model->getMesasExamen();
+        $this->view->showMesas($salas);
     }
+
+    public function showSalasEventos() {
+        
+        $salas = $this->model->getMesasEventos();
+        $this->view->showEventos($salas);
+    }    
 
     public function autenticar($id) {
 

@@ -13,9 +13,12 @@ $salasController = new SalasController();
 
 switch ($urlParts[0]) {
 	case 'salas':
-		$salasController->showAll();
+		$salasController->showSalasMesas();
 		break;
-	case 'autenticar':
+	case 'eventos':
+		$salasController->showSalasEventos();
+		break;
+		case 'autenticar':
 		$salasController->autenticar($urlParts[1]);
 		break;
 	case 'imagen':

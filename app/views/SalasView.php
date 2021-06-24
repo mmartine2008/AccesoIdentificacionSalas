@@ -17,13 +17,23 @@
             return $this->smarty;        
         }
 
-        public function showAll($salas) {
+        public function showMesas($salas) {
 
+            $this->smarty->assign('titulo', 'Salas para Mesas de Examen');
             $this->smarty->assign('salas', json_encode($salas));
 
             $this->getSmarty()->display('templates/salas.tpl');            
             
         }
+
+        public function showEventos($salas) {
+
+            $this->smarty->assign('titulo', 'Salas para Eventos Generales');
+            $this->smarty->assign('salas', json_encode($salas));
+
+            $this->getSmarty()->display('templates/salas.tpl');            
+            
+        }        
 
         public function autenticar($sala) {
             
