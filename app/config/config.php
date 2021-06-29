@@ -4,7 +4,7 @@
 
 // Configuracion de acceso a base de datos Majen:    
     $majen = [];
-    $majen['host'] = 'pgdb';
+    $majen['host'] = 'localhost';
     $majen['userName'] = 'postgres';
     $majen['password'] = 'postgres';
     $majen['database'] = 'docentes';  

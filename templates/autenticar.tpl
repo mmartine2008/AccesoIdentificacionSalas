@@ -140,15 +140,15 @@
                     </div>
                 </div>
                 <div class="row">
-
-                </div>
-
-                
                     <div class=" justify-content-center ">
                         <input name="imagen" id="imagen" size="307200" maxlength="307200" type="hidden">
 
-                        <button type="submit" class="btn btn-primary grow" id="btEnviar">Acreditarme</button>
+                        <button type="submit" class="btn btn-primary grow" id="btEnviar">Cuando cliqeuas aca se tomara la foto!</button>
                     </div>
+                </div>
+
+                
+
                 
 
 
